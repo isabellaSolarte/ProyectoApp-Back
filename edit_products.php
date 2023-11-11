@@ -2,12 +2,12 @@
 
     include("db.php");
     
-    if (isset($_GET["COD_PRODUCTO"])) {
+    if (isset($_GET["id"])) {
         
-        $cod_prodcuto= $_GET["COD_PRODUCTO"];
-       
-        $query = "SELECT * FROM producto WHERE COD_PRODUCTO= $cod_producto";
-        $result = mysqli_query($conn, $query);
+        $cod= $_GET["id"];
+        $query = "SELECT NOMBRE_PRODUCTO,PRECIO_PUBLICO_PRD,PRECIO_COMPRA_PRD,FECHA_VENCIMIENTO_PRD, 
+                PRODUCTO_CANTIDAD,LABORATORIO FROM producto WHERE COD_PRODUCTO=$cod;";
+        $result = mysqli_query($conn,$query);
             if (mysqli_num_rows($result) ==1) {
                 $row = mysqli_fetch_array($result);
                 $nombre=$row['NOMBRE_PRODUCTO'];
@@ -54,18 +54,18 @@
     <div class="row">
         <div class="col-md-4 mx-auto">
             <div class="card card-body">
-                <form action="edit_products.php?id=<?php echo $_GET['COD_PRODUCTO'];?>" method="POST">
+                <form action="edit_products.php?id=<?php echo $_GET['id'];?>" method="POST">
                 <div class="form-group mb-3">
                         <label for="Precio compra">Nombre del producto</label>
-                        <input type="text" name="nombre" class="form-control" value=<?php $nombre?>  autofocus>
+                        <input type="text" name="nombre" class="form-control" value=<?php $nombre?>  >
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio compra">Precio de venta</label>
-                        <input type="text" name="precioCompra" row = '2' class="form-control" value=<?php $precioCompra?> autofocus>
+                        <input type="text" name="precioCompra" row = '2' class="form-control" value=<?php $precioCompra?> >
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio público">Precio de compra</label>
-                        <input type="text" name="precioPublico" row = '3' class="form-control" value=<?php $precioPublico?>  autofocus>
+                        <input type="text" name="precioPublico" row = '3' class="form-control" value=<?php $precioPublico?>  >
                     </div>
                     <div class="form-group mb-3">
                         <label for="fecha">Selecciona una fecha:</label>
@@ -73,11 +73,11 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio compra">Cantidad de existencias</label>
-                        <input type="text" name="cantidad" row = '5' class="form-control" value=<?php $cantidad?> autofocus>
+                        <input type="text" name="cantidad" row = '5' class="form-control" value=<?php $cantidad?> >
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio compra">Laboratorio</label>
-                        <input type="text" name="laboratorio" row = '6' class="form-control" value=<?php $laboratorio?> autofocus>
+                        <input type="text" name="laboratorio" row = '6' class="form-control" value=<?php $laboratorio?> >
                     </div>
                     <input type="submit" class="btn btn-success custom-btn" name="update_product" value="Guardar">
                 

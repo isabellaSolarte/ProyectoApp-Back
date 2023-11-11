@@ -32,7 +32,7 @@
                                                 <td><?php echo $row['NOMBRE_CAT'] ?></td>
                                                 <td>
                                                     <div class="button-container">
-                                                        <a href="edit_products.php?id=<?php $row['COD_PRODUCTO']?>">
+                                                        <a href="edit_products.php?id=<?php echo $row['COD_PRODUCTO']?>">
                                                             <button class="btn btn-editar"  title="Editar">
                                                                 <i class="fas fa-pencil-alt"></i>
                                                             </button>
