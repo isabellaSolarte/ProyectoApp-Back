@@ -34,6 +34,34 @@
         .custom-btn {
             width: 100%; /* Ocupa el 100% del ancho de su contenedor */
         }
+        .boton-derecha{ 
+            background-color: #2e76a4;
+            color: #F8F8F8;
+            margin-right: 3%;
+            font-size:large;
+            width: 90px;
+        }
+        .boton-derecha:hover{
+            transform: translate(-5px,-5px);
+            transition: all .3s;
+        }
+        .btn-editar {
+        background-color: #4C40B7; /* Color verde */
+        color: white;
+        }
+        .btn-editar:hover{
+            transform: scale(0.9);
+            transition: all .3s;
+        }
+
+        .btn-eliminar{
+            background-color: #D47738; /* Color rojo */
+            color: white;
+        }
+        .btn-eliminar:hover {
+            transform: scale(0.9);
+            transition: all .3s;
+        }
         
     </style>
     <title>Crud mysql</title>
@@ -42,5 +70,8 @@
     <div class="cabecera">
         <a href="index.php">
             <img src="assets/Logo.png" alt="Icono" class="icono-izquierda">
+        </a>
+        <a href="crear_productos.php">
+            <button class="btn btn-custom boton-derecha">Crear <i class="fas fa-plus"></i></button>
         </a>
     </div>

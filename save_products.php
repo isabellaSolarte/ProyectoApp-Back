@@ -23,7 +23,7 @@
                 echo "Producto insertado exitosamente";
                 $_SESSION['message']='Producto guardado';
                 $_SESSION['message_type']='success';
-                header("Location: index.php");
+                header("Location: crear_productos.php");
             } else {
                 echo "Error en la inserción del producto: " . mysqli_error($conn);
             }
