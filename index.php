@@ -37,9 +37,11 @@
                                                                 <i class="fas fa-pencil-alt"></i>
                                                             </button>
                                                         </a>
-                                                        <button  class="btn btn-eliminar"  title="Eliminar" style="margin-left: 5px;">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </button>
+                                                        <a href="delete_products.php?id=<?php echo $row['COD_PRODUCTO']?>">
+                                                            <button  class="btn btn-eliminar"  title="Eliminar" style="margin-left: 5px;">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                 </td>
                                                 </tr>
