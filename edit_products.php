@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-md-4 mx-auto">
             <div class="card card-body">
-                <form action="edit_products.php?cod_producto=<?php echo $_GET['cod_producto'];?>" method="POST">
+                <form action="edit_products.php?id=<?php echo $_GET['COD_PRODUCTO'];?>" method="POST">
                 <div class="form-group mb-3">
                         <label for="Precio compra">Nombre del producto</label>
                         <input type="text" name="nombre" class="form-control" value=<?php $nombre?>  autofocus>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio público">Precio de compra</label>
-                        <input type="text" name="precioPublicp" row = '3' class="form-control" value=<?php $precioPublico?>  autofocus>
+                        <input type="text" name="precioPublico" row = '3' class="form-control" value=<?php $precioPublico?>  autofocus>
                     </div>
                     <div class="form-group mb-3">
                         <label for="fecha">Selecciona una fecha:</label>
