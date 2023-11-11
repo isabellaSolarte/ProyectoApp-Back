@@ -27,7 +27,6 @@
             } else {
                 echo "Error en la inserción del producto: " . mysqli_error($conn);
             }
-            mysqli_stmt_close($stmt);
 
         
 
