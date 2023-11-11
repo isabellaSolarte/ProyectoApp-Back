@@ -3,8 +3,7 @@
 <div class="container p-4">
     <div class="row">
         <div class="col-md-4">
-        <?php 
-            if(isset($_SESSION['message'])){?>
+        <?php if(isset($_SESSION['message_type'])){?>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
