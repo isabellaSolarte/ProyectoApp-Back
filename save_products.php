@@ -19,15 +19,19 @@
             
             mysqli_stmt_bind_param($stmt, "isiisis", $categoria, $nombre, $precioPublico, $precioCompra, $fecha, $cantidad, $laboratorio);
 
-            if (!mysqli_stmt_execute($stmt)) {
-
+            if (mysqli_stmt_execute($stmt)) {
+                echo "Producto insertado exitosamente";
+                $_SESSION['message']='Producto guardado';
+                $_SESSION['message_type']='success';
+                header("Location: index.php");
+            } else {
                 echo "Error en la inserción del producto: " . mysqli_error($conn);
             }
             mysqli_stmt_close($stmt);
 
-            $_SESSION['message']='Producto guardado';
-            $_SESSION['message_type']='success';
-            header("Location: index.php");
+        
+
+            
             
     }
 
