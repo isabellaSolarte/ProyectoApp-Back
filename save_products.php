@@ -15,7 +15,7 @@
               VALUES (?, ?, ?, ?, STR_TO_DATE(?, '%Y-%m-%d'), ?, ?)";
                 
                 $stmt = mysqli_prepare($conn, $query);
-                $categoria = 1;
+                $categoria = rand(1, 10);;
             
             mysqli_stmt_bind_param($stmt, "isiisis", $categoria, $nombre, $precioPublico, $precioCompra, $fecha, $cantidad, $laboratorio);
 
