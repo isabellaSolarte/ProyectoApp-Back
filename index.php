@@ -29,7 +29,7 @@
                         <label for="Precio compra">Laboratorio</label>
                         <input type="text" name="laboratorio" row = '6' class="form-control" placeholder="Laboratorio" autofocus>
                     </div>
-                    <input type="submit" class="btn btn-success custom-btn" name="save_product" value="Guardar">
+                    <input type="submit"  name="save_product" value="Guardar">
                 </form>
             </div>
 
