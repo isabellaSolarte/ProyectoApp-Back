@@ -2,11 +2,11 @@
 
     include("db.php");
     
-    if (isset($_GET["cod_producto"])) {
+    if (isset($_GET["id"])) {
         
-        $id= $_GET["cod_producto"];
+        $id= $_GET["id"];
        
-        $query = "DELETE FROM producto WHERE COD_PRODUCTO= $cod_producto";
+        $query = "DELETE FROM producto WHERE COD_PRODUCTO= $id";
         $result = mysqli_query($conn, $query);
             if (!$result) {
                 echo "Error en la inserción del producto: " . mysqli_error($conn);
