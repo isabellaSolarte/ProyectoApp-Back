@@ -2,20 +2,20 @@
 
     include("db.php");
     
-    if (isset($_GET["cod_producto"])) {
+    if (isset($_GET["COD_PRODUCTO"])) {
         
-        $cod_prodcuto= $_GET["cod_producto"];
+        $cod_prodcuto= $_GET["COD_PRODUCTO"];
        
         $query = "SELECT * FROM producto WHERE COD_PRODUCTO= $cod_producto";
         $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) ==1) {
                 $row = mysqli_fetch_array($result);
-                $nombre=$row['nombre'];
-                $precioPublico =  $row["precioPublico"];
-                $precioCompra =  $row["precioCompra"];
-                $fecha = $row['fecha'];
-                $cantidad =  $row["cantidad"];
-                $laboratorio = $row['laboratorio'];
+                $nombre=$row['NOMBRE_PRODUCTO'];
+                $precioPublico =  $row["PRECIO_PUBLICO_PRD"];
+                $precioCompra =  $row["PRECIO_COMPRA_PRD"];
+                $fecha = $row['FECHA_VENCIMIENTO_PRD'];
+                $cantidad =  $row["PRODUCTO_CANTIDAD"];
+                $laboratorio = $row['LABORATORIO'];
             }
 
         
