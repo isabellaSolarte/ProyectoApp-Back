@@ -3,6 +3,36 @@
 <div class="container p-4">
     <div class="row">
         <div class="col-md-4">
+        <?php 
+            if(isset($_SESSION['message'])){?>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">¡Producto Creado!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Contenido del modal -->
+                                <div class="text-center">
+                                    <div class="checkmark-circle">
+                                        <div class="background"></div>
+                                        <div class="checkmark draw"></div>
+                                    </div>
+                                </div>
+                                <p class="text-center">Producto creado exitosamente.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php }?>
+                
             <div class="card card-body" style="border: 2px solid #369cdd;">
                 <form action="save_products.php" method="POST">
                     <div class="form-group mb-3">

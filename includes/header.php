@@ -34,6 +34,7 @@
         .custom-btn {
             width: 100%; /* Ocupa el 100% del ancho de su contenedor */
         }
+        
     </style>
     <title>Crud mysql</title>
 </head>
