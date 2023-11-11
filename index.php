@@ -3,6 +3,12 @@
 <div class="container p-4">
     <div class="row">
         <div class="col-md-4">
+            <?php
+                if(isset($_SESSION['message'])) {
+            ?>
+            <?php
+                }
+            ?>
             <div class="card card-body" style="border: 2px solid #369cdd;">
                 <form action="save_products.php" method="POST">
                     <div class="form-group mb-3">

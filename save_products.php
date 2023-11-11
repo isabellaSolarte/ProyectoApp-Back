@@ -2,9 +2,7 @@
 
     include("db.php");
     
-    
     if (isset($_POST["save_product"])) {
-        
         
         $nombre=$_POST['nombre'];
         $precioPublico =  intval($_POST["precioPublico"]);;
@@ -21,12 +19,15 @@
             
             mysqli_stmt_bind_param($stmt, "isiisis", $categoria, $nombre, $precioPublico, $precioCompra, $fecha, $cantidad, $laboratorio);
 
-            if (mysqli_stmt_execute($stmt)) {
-                echo "Producto insertado exitosamente";
-            } else {
+            if (!mysqli_stmt_execute($stmt)) {
+
                 echo "Error en la inserción del producto: " . mysqli_error($conn);
             }
             mysqli_stmt_close($stmt);
+
+            $_SESSION['message']='Producto guardado';
+            $_SESSION['message_type']='success';
+            header("Location: index.php");
             
     }
 
