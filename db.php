@@ -5,7 +5,5 @@
         '',
         'php_mysql_crud'
     );
-    if(isset($conn)){
-        echo 'BD is connect';
-    }
+
 ?>    
