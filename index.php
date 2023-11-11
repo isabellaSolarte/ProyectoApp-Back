@@ -4,15 +4,14 @@
     <div class="row">
         <div class="col-md-4">
         <?php if(isset($_SESSION['message_type'])){?>
-        
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            
+            <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
             <?= $_SESSION['message']?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+
         
-        
-        
-            <?php }?>
+            <?php session_unset();}?>
                 
             <div class="card card-body" style="border: 2px solid #369cdd;">
                 <form action="save_products.php" method="POST">
