@@ -39,17 +39,33 @@ drop table if exists ROL;
 drop table if exists TIPO_PROMOCION;
 
 drop table if exists USUARIOROL;
+drop table if exists TRABAJADOR;
+/*==============================================================*/
+/* Table: TRABAJADOR                                            */
+/*==============================================================*/
 
+
+create table TRABAJADOR
+(
+    CC_USUARIO           INT           not null,
+    NOMBRE_USUARIO       VARCHAR(15)         not null,
+    TEL_USUARIO          VARCHAR(13)         not null,
+    LOGIN_USUARIO        VARCHAR(15)         not null,
+    CONTRASENIA_USUARIO  VARCHAR(15)         not null,
+    PRIMARY KEY (CC_USUARIO)
+    
+);
 /*==============================================================*/
 /* Table: ADMINISTRADOR                                         */
 /*==============================================================*/
 create table ADMINISTRADOR
 (
-   CC_USUARIO           numeric(15,0) not null,
+   CC_USUARIO           INT not null,
    SUELDO_ADMIN         numeric(10,0) not null,
    COMISIONES_ADMIN     numeric(10,0) not null,
    primary key (CC_USUARIO)
 );
+
 
 /*==============================================================*/
 /* Table: ATENCION_MEDICA                                       */
@@ -57,7 +73,7 @@ create table ADMINISTRADOR
 create table ATENCION_MEDICA
 (
    FECHA_ATMEDICA       date not null,
-   CC_USUARIO           numeric(15,0),
+   CC_USUARIO           INT,
    TIPO_ATMEDICA        varchar(100) not null,
    primary key (FECHA_ATMEDICA)
 );
@@ -92,7 +108,7 @@ create table COMPRA
 (
    ID_COMPRA            numeric(10,0) not null,
    COD_PRODUCTO         numeric(5,0) not null,
-   CC_USUARIO           numeric(15,0),
+   CC_USUARIO           INT,
    FECHA_COMPRA         date not null,
    VALOR_COMPRA         numeric(10,0) not null,
    CNT_PRODUCTOS        numeric(4,0) not null,
@@ -146,7 +162,7 @@ create table FACTURA
    ID_VENTA             numeric(10,0) not null,
    CC_CLIENTE           numeric(10,0) not null,
    CC_DOMICILIARIO      numeric(15,0),
-   CC_USUARIO           numeric(15,0) not null,
+   CC_USUARIO           INT not null,
    FECHA_VENTA          date not null,
    VALOR_VENTA          numeric(10,0) not null,
    primary key (ID_VENTA)
@@ -199,7 +215,7 @@ create table PROVEEDOR
 /*==============================================================*/
 create table REGENTE
 (
-   CC_USUARIO           numeric(15,0) not null,
+   CC_USUARIO           INT not null,
    CERTIFICADO_REGENTE  longblob not null,
    EPS_REGENTE          varchar(15) not null,
    primary key (CC_USUARIO)
@@ -212,7 +228,7 @@ create table REGISTRO_DEVOLUCION
 (
    COD_DEVOLUCION       numeric(15,0) not null,
    CC_CLIENTE           numeric(10,0) not null,
-   CC_USUARIO           numeric(15,0) not null,
+   CC_USUARIO           INT not null,
    FECHA_DEVOLUCION     date not null,
    MOTIVO_DEVOLUCION    text not null,
    primary key (COD_DEVOLUCION)
@@ -224,7 +240,7 @@ create table REGISTRO_DEVOLUCION
 create table REPORTE
 (
    FECHA_REPORTE        date not null,
-   CC_USUARIO           numeric(15,0) not null,
+   CC_USUARIO           INT not null,
    REGISTRO_REPORTE     numeric(3,3) not null,
    TIPO_REPORTE         varchar(11) not null,
    primary key (FECHA_REPORTE)
@@ -256,12 +272,20 @@ create table TIPO_PROMOCION
 /*==============================================================*/
 create table USUARIOROL
 (
-   CC_USUARIO           numeric(15,0) not null,
+   CC_USUARIO          INT not null,
    ID_ROL               numeric(2,0) not null,
    FECHAINICIOVIGENCIA  date not null,
    FECHAFINVIGENCIA     date not null,
    primary key (CC_USUARIO, ID_ROL, FECHAINICIOVIGENCIA)
 );
+ALTER TABLE ADMINISTRADOR ADD CONSTRAINT FK_ADMINISTRADOR_USUARIO FOREIGN KEY (CC_USUARIO)
+      REFERENCES TRABAJADOR(CC_USUARIO) on delete restrict on update restrict;
+
+ALTER TABLE REGENTE ADD CONSTRAINT FK_REGENTE_USUARIO FOREIGN KEY (CC_USUARIO)
+      REFERENCES TRABAJADOR(CC_USUARIO) on delete restrict on update restrict;
+
+ALTER TABLE USUARIOROL ADD CONSTRAINT FK_USUARIOROL_USUARIO FOREIGN KEY (CC_USUARIO)
+      REFERENCES TRABAJADOR(CC_USUARIO) on delete restrict on update restrict;
 
 alter table ATENCION_MEDICA add constraint FK_EJECUTA foreign key (CC_USUARIO)
       references REGENTE (CC_USUARIO) on delete restrict on update restrict;
@@ -322,10 +346,11 @@ alter table REPORTE add constraint FK_REGISTRA3 foreign key (CC_USUARIO)
 
 alter table USUARIOROL add constraint FK_TIENE4 foreign key (ID_ROL)
       references ROL (ID_ROL) on delete restrict on update restrict;
-
+/*
 alter table USUARIOROL add constraint FK_TIENE5 foreign key (CC_USUARIO)
       references REGENTE (CC_USUARIO) on delete restrict on update restrict;
 
 alter table USUARIOROL add constraint FK_TIENE6 foreign key (CC_USUARIO)
       references ADMINISTRADOR (CC_USUARIO) on delete restrict on update restrict;
 
+*/
