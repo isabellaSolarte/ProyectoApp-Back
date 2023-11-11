@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card card-body" style="border: 2px solid #369cdd;">
-                <form action="">
+                <form action="save_products.php" method="POST">
                     <div class="form-group mb-3">
                         <label for="Precio compra">Nombre del producto</label>
                         <input type="text" name="nombre" class="form-control" placeholder="Nombre producto" autofocus>
