@@ -50,12 +50,13 @@
                                                         </a>
                                                     </div>
                                                 </td>
-                                                <?php 
                                                 
-                                                ?>
+                                                
                                                 <td> </td>
                                             </tr>
-                                        <?php } ?>      
+                                            <?php } ?>  
+                                            
+                                           
                             </tbody>
                         </table>
             </div>
