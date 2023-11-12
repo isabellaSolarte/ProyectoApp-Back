@@ -21,7 +21,7 @@
     }
     if (isset($_POST["update_product"])) {
         
-        $cod_prodcuto= $_GET["cod_producto"];
+        $cod_producto= $_GET["id"];
         $nombre=$_POST['nombre'];
         $precioPublico =  intval($_POST["precioPublico"]);;
         $precioCompra =  intval($_POST["precioCompra"]);;
@@ -29,12 +29,12 @@
         $cantidad =  intval($_POST["cantidad"]);;
         $laboratorio = $_POST['laboratorio'];
         $query = "UPDATE PRODUCTO SET 
-            NOMBRE_PRODUCTO =$nombre,
+            NOMBRE_PRODUCTO ='$nombre',
             PRECIO_PUBLICO_PRD=$precioPublico ,
             PRECIO_COMPRA_PRD=$precioCompra,
-            FECHA_VENCIMIENTO_PRD= STR_TO_DATE($fecha, '%Y-%m-%d'),
+            FECHA_VENCIMIENTO_PRD= STR_TO_DATE('$fecha', '%Y-%m-%d'),
             PRODUCTO_CANTIDAD=$cantidad ,
-            LABORATORIO=$laboratorio WHERE COD_PRODUCTO=$cod_producto ";
+            LABORATORIO='$laboratorio'WHERE COD_PRODUCTO=$cod_producto ";
         $result = mysqli_query($conn, $query);
         $_SESSION['message']='Producto actualizado ';
         $_SESSION['message_type']='warning';
