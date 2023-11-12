@@ -1,0 +1,71 @@
+create table ROL
+(
+   ID_ROL               INT not null,
+   NOMBRE_ROL           varchar(15) not null,
+   primary key (ID_ROL)
+);
+
+
+create table USUARIOROL
+(
+   CC_USUARIO          INT not null,
+   ID_ROL               INT not null,
+   FECHAINICIOVIGENCIA  date not null,
+   FECHAFINVIGENCIA     date not null,
+   primary key (CC_USUARIO, ID_ROL, FECHAINICIOVIGENCIA)
+);
+create table TRABAJADOR
+(
+    CC_USUARIO           INT           not null,
+    NOMBRE_USUARIO       VARCHAR(15)         not null,
+    TEL_USUARIO          VARCHAR(13)         not null,
+    LOGIN_USUARIO        VARCHAR(15)         not null,
+    CONTRASENIA_USUARIO  VARCHAR(15)         not null,
+    PRIMARY KEY (CC_USUARIO)
+    
+);
+
+create table ADMINISTRADOR
+(
+   CC_USUARIO           INT not null,
+   SUELDO_ADMIN         INT not null,
+   COMISIONES_ADMIN     INT not null,
+   primary key (CC_USUARIO)
+);
+create table REGENTE
+(
+   CC_USUARIO           INT not null,
+   CERTIFICADO_REGENTE  longblob not null,
+   EPS_REGENTE          varchar(15) not null,
+   primary key (CC_USUARIO)
+);
+-- Insertar un nuevo rol
+--1
+INSERT INTO ROL (ID_ROL, NOMBRE_ROL) VALUES (1, 'Administrador');
+INSERT INTO ROL (ID_ROL, NOMBRE_ROL) VALUES (2, 'Regente');
+--2
+INSERT INTO TRABAJADOR (CC_USUARIO, NOMBRE_USUARIO, TEL_USUARIO, LOGIN_USUARIO, CONTRASENIA_USUARIO)
+VALUES (1, 'Simon Guzmán', '2342567', 'siguzman', '123');
+INSERT INTO TRABAJADOR (CC_USUARIO, NOMBRE_USUARIO, TEL_USUARIO, LOGIN_USUARIO, CONTRASENIA_USUARIO)
+VALUES (2, 'Juan Perez', '555-1234567', 'juanito', '123');
+INSERT INTO TRABAJADOR (CC_USUARIO, NOMBRE_USUARIO, TEL_USUARIO, LOGIN_USUARIO, CONTRASENIA_USUARIO)
+VALUES (3, 'Isabella Solarte', '534567', 'isabsolarte', '123');
+INSERT INTO TRABAJADOR (CC_USUARIO, NOMBRE_USUARIO, TEL_USUARIO, LOGIN_USUARIO, CONTRASENIA_USUARIO)
+VALUES (4, 'Daniela Riascos', '13534567', 'driascos', '123');
+--3
+INSERT INTO ADMINISTRADOR (CC_USUARIO, SUELDO_ADMIN, COMISIONES_ADMIN)
+VALUES (4, 55000, 88700);
+INSERT INTO ADMINISTRADOR (CC_USUARIO, SUELDO_ADMIN, COMISIONES_ADMIN)
+VALUES (3, 54300, 67800);
+---4
+INSERT INTO REGENTE (CC_USUARIO, CERTIFICADO_REGENTE, EPS_REGENTE)
+VALUES (1, 'EMPTY_BLOB()', 'EPS Regente 1');
+INSERT INTO REGENTE (CC_USUARIO, CERTIFICADO_REGENTE, EPS_REGENTE)
+VALUES (2, 'EMPTY_BLOB()', 'EPS Regente 2');
+--5
+INSERT INTO USUARIOROL (CC_USUARIO, ID_ROL, FECHAINICIOVIGENCIA, FECHAFINVIGENCIA)
+VALUES (1, 2, '2023-01-01', '2023-12-31'),
+       (2, 2, '2023-02-15', '2023-11-30'),
+       (3, 1, '2023-03-10', '2023-10-15'),
+       (4, 1, '2023-04-20', '2023-09-30');
+

@@ -3,8 +3,8 @@
 <div class="container p-3">
         <!-- Botones -->
             <div class="mb-3">
-                <a href="index.php" class="btn btn-primary">Botón 1</a>
-                <a href="index.php" class="btn btn-secondary">Botón 2</a>
+                <a href="consultar_fechaVencimiento.php" class="btn btn-primary">Productos vencidos</a>
+                <a href="consultar_proveedores.php" class="btn btn-secondary">Proveedores</a>
             </div>
             <?php if(isset($_SESSION['message_type'])){?>
                 <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
