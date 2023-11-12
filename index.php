@@ -37,7 +37,7 @@ if (!empty($_GET['user']) && !empty($_GET['password'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Animated Login Form</title>
+    <title>Login Droguería</title>
     <link rel="stylesheet" href="assets/css/styleLogin.css">
 </head>
 <body>

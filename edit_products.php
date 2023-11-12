@@ -51,27 +51,27 @@
                 <form action="edit_products.php?id=<?php echo $_GET['id'];?>" method="POST">
                 <div class="form-group mb-3">
                         <label for="Precio compra">Nombre del producto</label>
-                        <input type="text" name="nombre" class="form-control" value=<?php $nombre?>  >
+                        <input type="text" name="nombre" class="form-control" value=<?php echo $nombre?>  >
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio compra">Precio de venta</label>
-                        <input type="text" name="precioPublico" row = '2' class="form-control" value=<?php $precioCompra?> >
+                        <input type="text" name="precioPublico" row = '2' class="form-control" value=<?php echo $precioCompra?> >
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio público">Precio de compra</label>
-                        <input type="text" name="precioCompra" row = '3' class="form-control" value=<?php $precioPublico?>  >
+                        <input type="text" name="precioCompra" row = '3' class="form-control" value=<?php echo $precioPublico?>  >
                     </div>
                     <div class="form-group mb-3">
                         <label for="fecha">Selecciona una fecha:</label>
-                        <input type="date" id="fecha" row = '4' name="fecha" class="form-control">
+                        <input type="date" id="fecha" row = '4' name="fecha" class="form-control" value=<?php echo $fecha?>>
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio compra">Cantidad de existencias</label>
-                        <input type="text" name="cantidad" row = '5' class="form-control" value=<?php $cantidad?> >
+                        <input type="text" name="cantidad" row = '5' class="form-control" value=<?php echo $cantidad?> >
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio compra">Laboratorio</label>
-                        <input type="text" name="laboratorio" row = '6' class="form-control" value=<?php $laboratorio?> >
+                        <input type="text" name="laboratorio" row = '6' class="form-control" value=<?php echo $laboratorio?> >
                     </div>
                     <div class="btn-group">
                         <input type="submit" class="btn btn-success custom-btn" name="update_product" value="Guardar">
