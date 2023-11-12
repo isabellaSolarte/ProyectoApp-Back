@@ -8,20 +8,28 @@ include("db.php");
 
 $message = '';
 
-if (!empty($_POST['user']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT LOGIN_USUARIO, CONTRASENIA_USUARIO FROM TRABAJADOR WHERE LOGIN_USUARIO = ?');
-    $records->bind_param('s', $_POST['user']);
-    $records->execute();
-    $records->bind_result($loginUsuario, $contraseniaUsuario);
-    $records->fetch();
-
-    if ($records->num_rows > 0 && password_verify($_POST['password'], $contraseniaUsuario)) {?>
-        <h1>siuuu</h1>
-        <?php header("Location: list_products.php");
-        exit();
-    } else {
-        $message = 'Sorry, those credentials do not match';
-    }
+if (!empty($_GET['user']) && !empty($_GET['password'])) {
+    $login=$_GET['user'];
+    
+    $password=$_GET['password'];
+    $query="SELECT t.LOGIN_USUARIO,t.CONTRASENIA_USUARIO
+            FROM
+                trabajador t
+            JOIN
+                usuariorol ur ON t.CC_USUARIO = ur.CC_USUARIO
+            JOIN
+                rol r ON r.ID_ROL = ur.ID_ROL
+            WHERE r.ID_ROL=1 AND t.LOGIN_USUARIO = '$login' AND t.CONTRASENIA_USUARIO='$password';";
+                $result = mysqli_query($conn,$query);
+            if (mysqli_num_rows($result) ==1) {
+                $row = mysqli_fetch_array($result);
+                $_SESSION['user_name'] = $row['LOGIN_USUARIO'];
+                setcookie('cookie_name', $row['LOGIN_USUARIO'], time() + (86400 * 30), "/"); 
+                header("Location: list_products.php");
+                
+                exit();
+                
+            }
 }
 ?>
 
@@ -34,7 +42,7 @@ if (!empty($_POST['user']) && !empty($_POST['password'])) {
 </head>
 <body>
     <div class="box">
-        <form action="index.php" autocomplete="off" method="POST">
+        <form action="index.php" autocomplete="off" method="GET">
             <h2>Sign in</h2>
             <div class="inputBox">
                 <input type="text" name="user" required="required">
