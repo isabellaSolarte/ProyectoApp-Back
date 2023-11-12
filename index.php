@@ -1,67 +1,29 @@
-<?php include("db.php") ?>
-<?php include("includes/header.php") ?>
-<div class="container p-3">
-            <?php if(isset($_SESSION['message_type'])){?>
-                <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
-                <?= $_SESSION['message']?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php session_unset();}?>
-            <div class="table-responsive ">
-                        <table class="table table-striped rounded">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Precio de venta</th>
-                                    <th>Fecha de vencimiento</th>
-                                    <th>Cantidad</th>
-                                    <th>Laboratorio</th>
-                                    <th>Categoría</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <?php
-                                        $query = "SELECT p.COD_PRODUCTO,p.NOMBRE_PRODUCTO,p.PRECIO_PUBLICO_PRD,p.PRECIO_COMPRA_PRD,p.FECHA_VENCIMIENTO_PRD,p.PRODUCTO_CANTIDAD,p.LABORATORIO,c.NOMBRE_CAT
-                                        FROM PRODUCTO p INNER JOIN categoria c
-                                        ON p.COD_CATEGORIA=c.COD_CATEGORIA;";
-                                        $result= mysqli_query($conn,$query);  
-                                        while($row = mysqli_fetch_array($result)){ ?>
-                                            <tr>
-                                                <td><?php echo $row['COD_PRODUCTO'] ?></td>
-                                                <td><?php echo $row['NOMBRE_PRODUCTO'] ?></td>
-                                                <td><?php echo $row['PRECIO_PUBLICO_PRD'] ?></td>
-                                                <td><?php echo $row['FECHA_VENCIMIENTO_PRD'] ?></td>
-                                                <td><?php echo $row['PRODUCTO_CANTIDAD'] ?></td>
-                                                <td><?php echo $row['LABORATORIO'] ?></td>
-                                                <td><?php echo $row['NOMBRE_CAT'] ?></td>
-                                                <td>
-                                                    <div class="button-container">
-                                                        <a href="edit_products.php?id=<?php echo $row['COD_PRODUCTO']?>">
-                                                            <button class="btn btn-editar"  title="Editar">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </button>
-                                                        </a>
-                                                        <a href="delete_products.php?id=<?php echo $row['COD_PRODUCTO']?>">
-                                                            <button  class="btn btn-eliminar"  title="Eliminar" style="margin-left: 5px;">
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                
-                                                
-                                                <td> </td>
-                                            </tr>
-                                            <?php } ?>  
-                                            
-                                           
-                            </tbody>
-                        </table>
-            </div>
-</div>
-<?php include("includes/footer.php") ?>
-
-
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animated Login Form</title>
+	<link rel="stylesheet" href="assets/css/styleLogin.css">
+</head>
+<body>
+	<div class="box">
+		<form autocomplete="off">
+			<h2>Sign in</h2>
+			<div class="inputBox">
+				<input type="text" required="required">
+				<span>Usuario</span>
+				<i></i>
+			</div>
+			<div class="inputBox">
+				<input type="password" required="required">
+				<span>Contraseña</span>
+				<i></i>
+			</div>
+			<div class="links">
+				<a href="#">Signup</a>
+			</div>
+			<input type="submit" value="Login">
+		</form>
+	</div>
+</body>
+</html>

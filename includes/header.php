@@ -15,73 +15,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        /* Estilos directamente en el HTML */
-        .cabecera {
-            background-color: #369cdd;
-            width: 100%;
-            height: 11vh;/* Cambia la altura según tus preferencias */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            border-bottom: 5px solid #2e76a4;
-        }
-        .icono-izquierda {
-            width: auto; /* Ancho de la imagen */
-            height: 100%; /* Altura de la imagen */
-        }
-        .custom-btn {
-            width: 100%; /* Ocupa el 100% del ancho de su contenedor */
-        }
-        .boton-derecha{ 
-            background-color: #2e76a4;
-            color: #F8F8F8;
-            margin-right: 3%;
-            font-size:large;
-            width: 90px;
-        }
-        .boton-derecha:hover{
-            transform: translate(-5px,-5px);
-            transition: all .3s;
-        }
-        .btn-editar {
-        background-color: #4C40B7; /* Color verde */
-        color: white;
-        }
-        .btn-editar:hover{
-            transform: scale(0.9);
-            transition: all .3s;
-        }
-
-        .btn-eliminar{
-            background-color: #D47738; /* Color rojo */
-            color: white;
-        }
-        .btn-eliminar:hover {
-            transform: scale(0.9);
-            transition: all .3s;
-        }
-        .separador {
-        height: 50px; 
-        width: 2px;
-        background-color: #F8F8F8; 
-        margin: 0 10px;
-        }
-        .titulo-pagina {
-        flex: 1;
-        padding-left: 10px;
-        }
-        .titulo-pagina h1{
-            color: #F8F8F8;
-        }
-        /*controlar responsive*/
-        @media (max-width: 768px) {
-            .titulo {
-                font-size: 24px; 
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Crud mysql</title>
 </head>
 <body>

@@ -3,7 +3,7 @@
     include("db.php");
     
     if (isset($_GET["id"])) {
-        
+
         $cod= $_GET["id"];
         $query = "SELECT NOMBRE_PRODUCTO,PRECIO_PUBLICO_PRD,PRECIO_COMPRA_PRD,FECHA_VENCIMIENTO_PRD, 
                 PRODUCTO_CANTIDAD,LABORATORIO FROM producto WHERE COD_PRODUCTO=$cod;";
@@ -18,10 +18,6 @@
                 $laboratorio = $row['LABORATORIO'];
             }
 
-        
-
-            
-            
     }
     if (isset($_POST["update_product"])) {
         
@@ -42,7 +38,7 @@
         $result = mysqli_query($conn, $query);
         $_SESSION['message']='Producto actualizado ';
         $_SESSION['message_type']='warning';
-        header("Location: index.php");
+        header("Location: list_products.php");
             
             
     }
@@ -59,11 +55,11 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio compra">Precio de venta</label>
-                        <input type="text" name="precioCompra" row = '2' class="form-control" value=<?php $precioCompra?> >
+                        <input type="text" name="precioPublico" row = '2' class="form-control" value=<?php $precioCompra?> >
                     </div>
                     <div class="form-group mb-3">
                         <label for="Precio público">Precio de compra</label>
-                        <input type="text" name="precioPublico" row = '3' class="form-control" value=<?php $precioPublico?>  >
+                        <input type="text" name="precioCompra" row = '3' class="form-control" value=<?php $precioPublico?>  >
                     </div>
                     <div class="form-group mb-3">
                         <label for="fecha">Selecciona una fecha:</label>
@@ -79,7 +75,7 @@
                     </div>
                     <div class="btn-group">
                         <input type="submit" class="btn btn-success custom-btn" name="update_product" value="Guardar">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
+                        <a href="list_products.php" class="btn btn-secondary ml-2">Cancelar</a>
                     </div>
                 </form>
             </div>
