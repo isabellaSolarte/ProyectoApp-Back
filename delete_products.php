@@ -13,12 +13,7 @@
             }
             $_SESSION['message']='Producto eliminado satisfactoriamente';
             $_SESSION['message_type']='danger';
-            header("Location: index.php");
-
-        
-
-            
-            
+            header("Location: list_products.php");    
     }
 
 ?>

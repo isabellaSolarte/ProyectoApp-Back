@@ -39,7 +39,7 @@
                     </div>
                     <div class="btn-group">
                         <input type="submit" class="btn btn-success custom-btn" name="save_product" value="Guardar">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
+                        <a href="list_products.php" class="btn btn-secondary ml-2">Cancelar</a>
                     </div>
                 </form>
         </div>
