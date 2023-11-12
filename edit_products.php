@@ -48,12 +48,10 @@
     }
 ?>
 <?php 
-    include("includes/header.php");
+    include("includes/headerEdit.php");
 ?>
-<div class= "container p-4">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card card-body">
+<div class= "container p-3">
+            <div class="card card-body" style="border: 2px solid #369cdd;">
                 <form action="edit_products.php?id=<?php echo $_GET['id'];?>" method="POST">
                 <div class="form-group mb-3">
                         <label for="Precio compra">Nombre del producto</label>
@@ -79,13 +77,12 @@
                         <label for="Precio compra">Laboratorio</label>
                         <input type="text" name="laboratorio" row = '6' class="form-control" value=<?php $laboratorio?> >
                     </div>
-                    <input type="submit" class="btn btn-success custom-btn" name="update_product" value="Guardar">
-                
+                    <div class="btn-group">
+                        <input type="submit" class="btn btn-success custom-btn" name="update_product" value="Guardar">
+                        <a href="index.php" class="btn btn-secondary ml-2">Cancelar</a>
+                    </div>
                 </form>
             </div>
-        </div>
-    </div>
-
 </div>
 <?php 
     include("includes/footer.php");

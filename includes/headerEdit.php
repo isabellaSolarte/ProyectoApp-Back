@@ -89,9 +89,6 @@
         <img src="assets/Logo.png" alt="Icono" class="icono-izquierda">
         <div class="separador"></div>
         <div class="titulo-pagina">
-            <h1 class="titulo">Ver productos</h1>
+            <h1 class="titulo">Editar producto</h1>
         </div>
-        <a href="crear_productos.php">
-            <button class="btn btn-custom boton-derecha">Crear <i class="fas fa-plus"></i></button>
-        </a>
     </div>

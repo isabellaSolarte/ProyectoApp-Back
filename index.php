@@ -1,6 +1,12 @@
 <?php include("db.php") ?>
 <?php include("includes/header.php") ?>
 <div class="container p-3">
+            <?php if(isset($_SESSION['message_type'])){?>
+                <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
+                <?= $_SESSION['message']?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php session_unset();}?>
             <div class="table-responsive ">
                         <table class="table table-striped rounded">
                             <thead>
@@ -44,7 +50,11 @@
                                                         </a>
                                                     </div>
                                                 </td>
-                                                </tr>
+                                                <?php 
+                                                
+                                                ?>
+                                                <td> </td>
+                                            </tr>
                                         <?php } ?>      
                             </tbody>
                         </table>
