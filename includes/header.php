@@ -17,6 +17,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Crud mysql</title>
+    <style>
+        .btn-eliminar{
+            background-color: #c72f2faa; /* Color rojo */
+            color: white;
+        }
+        .btn-editar {
+            background-color: #369cdd; /* Color verde */
+            color: white;
+        }
+
+
+    </style>
+
 </head>
 <body>
     <div class="cabecera">

@@ -1,6 +1,9 @@
 <?php include("db.php") ?>
 <?php include("includes/headerDate.php") ?>
 <div class="container p-3">
+            <div class="mb-3">
+                <a href="list_products.php" class="btn btn-secondary">Cancelar</a>
+            </div>
             <?php if(isset($_SESSION['message_type'])){?>
                 <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
                 <?= $_SESSION['message']?>

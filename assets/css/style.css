@@ -27,8 +27,8 @@
     transition: all .3s;
 }
 .btn-editar {
-background-color: #4C40B7; /* Color verde */
-color: white;
+    background-color: #369cdd; /* Color verde */
+    color: white;
 }
 .btn-editar:hover{
     transform: scale(0.9);
@@ -36,7 +36,7 @@ color: white;
 }
 
 .btn-eliminar{
-    background-color: #D47738; /* Color rojo */
+    background-color: #c72f2faa; /* Color rojo */
     color: white;
 }
 .btn-eliminar:hover {
